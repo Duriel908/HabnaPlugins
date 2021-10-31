@@ -46,6 +46,7 @@ function UnloadControl( value )
 		if ShowSpringLeaf then _G.SPLWhere = 3; ShowHideSpringLeaf(); end
 		if ShowMidsummerToken then _G.MSTWhere = 3; ShowHideMidsummerToken(); end
 		if ShowAncientScript then _G.ASWhere = 3; ShowHideAncientScript(); end
+		if ShowSigilOfImladIthil then _G.SOIIWhere = 3; ShowHideSigilOfImladIthil(); end
 		elseif value == "this" then
 			if _G.sFromCtr == "WI" then ShowHideWallet();
 			elseif _G.sFromCtr == "Money" then _G.MIWhere = 3; ShowHideMoney();
@@ -86,6 +87,7 @@ function UnloadControl( value )
 			elseif _G.sFromCtr == "SPL" then _G.SPLWhere = 3; ShowHideSpringLeaf();
 			elseif _G.sFromCtr == "MST" then _G.MSTWhere = 3; ShowHideMidsummerToken();
 			elseif _G.sFromCtr == "AS" then _G.ASWhere = 3; ShowHideAncientScript();
+			elseif _G.sFromCtr == "SOII" then _G.SOIIWhere = 3; ShowHideSigilOfImladIthil();
 			end
 		end
 
@@ -140,6 +142,7 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "SPL" then tA, tR, tG, tB = SPLbcAlpha, SPLbcRed, SPLbcGreen, SPLbcBlue;
 		elseif _G.sFromCtr == "MST" then tA, tR, tG, tB = MSTbcAlpha, MSTbcRed, MSTbcGreen, MSTbcBlue;
 		elseif _G.sFromCtr == "AS" then tA, tR, tG, tB = ASbcAlpha, ASbcRed, ASbcGreen, ASbcBlue;
+		elseif _G.sFromCtr == "SOII" then tA, tR, tG, tB = SOIIbcAlpha, SOIIbcRed, SOIIbcGreen, SOIIbcBlue;
 		end
 	end
 	
@@ -222,6 +225,8 @@ function BGColor( cmd, value )
 		if ShowMidsummerToken then MST[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		ASbcAlpha, ASbcRed, ASbcGreen, ASbcBlue = tA, tR, tG, tB;
 		if ShowAncientScript then AS[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		SOIIbcAlpha, SOIIbcRed, SOIIbcGreen, SOIIbcBlue = tA, tR, tG, tB;
+		if ShowSigilOfImladIthil then SOII[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 	elseif value == "all" then
 		BGColor( cmd, "ctr" );
 		BGColor( cmd, "TitanBar" );
@@ -343,6 +348,9 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "AS" then
 			ASbcAlpha, ASbcRed, ASbcGreen, ASbcBlue = tA, tR, tG, tB;
 			AS[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );	
+		elseif _G.sFromCtr == "SOII" then
+			SOIIbcAlpha, SOIIbcRed, SOIIbcGreen, SOIIbcBlue = tA, tR, tG, tB;
+			SOII[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );	
 		end
 	elseif value == "TitanBar" then
 		bcAlpha, bcRed, bcGreen, bcBlue = tA, tR, tG, tB;

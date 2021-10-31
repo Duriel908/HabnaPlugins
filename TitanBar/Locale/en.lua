@@ -118,6 +118,9 @@ L[ "MSTh" ] = "These are your Midsummer Tokens";
 -- Ancient Script control
 L[ "MAS" ] = "Ancient Script";
 L[ "ASh" ] = "These are your Ancient Scripts";
+-- Sigil of Imlad Ithil control
+L[ "MSOII" ] = "Sigil of Imlad Ithil";
+L[ "SOIIh" ] = "These are your Sigil of Imlad Ithil";
 
 -- Control Menu
 L[ "MCU" ] = "Unload ...";

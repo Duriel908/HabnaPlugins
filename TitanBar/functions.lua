@@ -344,6 +344,11 @@ function ShowToolTipWin( ToShow )
 		h = 65;
 		if not TBTop then y = h; end
 		TTW = createToolTipWin( x, y, w, h, bblTo, L["ASh"], L["EIt2"], L["EIt3"] );			
+	elseif ToShow == "SOII" then -- Sigil of Imlad Ithil
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["SOIIh"], L["EIt2"], L["EIt3"] );			
 	end
 
 	_G.ToolTipWin:SetPosition( mouseX - _G.ToolTipWin.xOffset, mouseY - 
@@ -666,6 +671,15 @@ function UpdateAncientScript()
 		AS[ "Lbl" ]:SetText( GetCurrency( L[ "MAS" ] ) );
 		AS[ "Lbl" ]:SetSize( AS[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "AS" );
+	end
+end
+--**^
+--**v Update Sigil of Imlad Ithil currency on TitanBar v**
+function UpdateSigilOfImladIthil()
+	if _G.SOIIWhere == 1 then
+		SOII[ "Lbl" ]:SetText( GetCurrency( L[ "MSOII" ] ) );
+		SOII[ "Lbl" ]:SetSize( SOII[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "SOII" );
 	end
 end
 --**^
@@ -1022,6 +1036,7 @@ function ChangeColor(tColor)
 		if ShowSpringLeaf then SPL[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowMidsummerToken then MST[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowAncientScript then AS[ "Ctr" ]:SetBackColor( tColor ); end
+		if ShowSigilOfImladIthil then SOII[ "Ctr" ]:SetBackColor( tColor ); end
 	else
 		if sFrom == "TitanBar" then TB["win"]:SetBackColor( tColor ); end
 		if sFrom == "WI" then WI[ "Ctr" ]:SetBackColor( tColor ); end
@@ -1063,6 +1078,7 @@ function ChangeColor(tColor)
 		if sFrom == "SPL" then SPL[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "MST" then MST[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "AS" then AS[ "Ctr" ]:SetBackColor( tColor ); end
+		if sFrom == "SOII" then SOII[ "Ctr" ]:SetBackColor( tColor ); end
 	end
 end
 --**^
@@ -1349,6 +1365,12 @@ function AjustIcon(str)
 		AS[ "Ctr" ]:SetSize( AS[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
 		AS[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
 		AS[ "Icon" ]:SetStretchMode( 3 );		
+	elseif str == "SOII" then
+		SOII[ "Icon" ]:SetStretchMode( 1 );
+		SOII[ "Icon" ]:SetPosition(SOII[ "Lbl" ]:GetLeft()+SOII[ "Lbl" ]:GetWidth()+3,Y);
+		SOII[ "Ctr" ]:SetSize( SOII[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
+		SOII[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
+		SOII[ "Icon" ]:SetStretchMode( 3 );		
 	end
 end
 

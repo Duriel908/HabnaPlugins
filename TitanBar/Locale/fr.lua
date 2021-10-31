@@ -118,6 +118,9 @@ L[ "MSTh" ] = "Ce sont vos Jetons du solstice d'été";
 -- Ancient Script control
 L[ "MAS" ] = "\195\137criture ancienne";
 L[ "ASh" ] = "Ce sont vos \195\137criture ancienne";
+-- Sigil of Imlad Ithil control
+L[ "MSOII" ] = "Sceau d\226\128\153Imlad Ithil";
+L[ "SOIIh" ] = "Ce sont vos Sceau d\226\128\153Imlad Ithil";
 
 -- Control Menu
 L[ "MCU" ] = "D\195\169charger ...";

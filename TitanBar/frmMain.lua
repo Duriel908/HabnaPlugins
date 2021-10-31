@@ -184,6 +184,7 @@ function frmMain()
 			if _G.SPLWhere ~= 3 then ImportCtr( "SPL" ); end
 			if _G.MSTWhere ~= 3 then ImportCtr( "MST" ); end
 			if _G.ASWhere ~= 3 then ImportCtr( "AS" ); end
+			if _G.SOIIWhere ~= 3 then ImportCtr( "SOII" ); end
 		end
 	else
 		-- Disable infos not useful in Monster Play
@@ -200,6 +201,7 @@ function frmMain()
 		ShowSpringLeaf = false;
 		ShowMidsummerToken = false;
 		ShowAncientScript = false;
+		ShowSigilOfImladIthil = false;
 		if PlayerWalletSize ~= nil or PlayerWalletSize ~= 0 then
 			if ShowWallet then ImportCtr( "WI" ); end
 			if _G.CPWhere ~= 3 then ImportCtr( "CP" ); end
@@ -337,6 +339,7 @@ function frmMain()
 				if _G.SPLWhere ~= 3 then ImportCtr( "SPL" ); end
 				if _G.MSTWhere ~= 3 then ImportCtr( "MST" ); end
 				if _G.ASWhere ~= 3 then ImportCtr( "AS" ); end
+				if _G.SOIIWhere ~= 3 then ImportCtr( "SOII" ); end
 			end
 
 			screenWidth, screenHeight = Turbine.UI.Display.GetSize();

@@ -944,6 +944,25 @@ function LoadSettings()-- I'm confused as to what most of this is... Most of the
 	_G.ASWhere = tonumber(settings.AncientScript.W);
 	if _G.ASWhere == 3 and ShowAncientScript then _G.ASWhere = 1; settings.AncientScript.W = string.format("%.0f", _G.ASWhere); end
 
+	if settings.SigilOfImladIthil == nil then settings.SigilOfImladIthil= {}; end
+	if settings.SigilOfImladIthil.V == nil then settings.SigilOfImladIthil.V = false; end
+	if settings.SigilOfImladIthil.A == nil then settings.SigilOfImladIthil.A = string.format("%.3f", tA); end
+	if settings.SigilOfImladIthil.R == nil then settings.SigilOfImladIthil.R = string.format("%.3f", tR); end
+	if settings.SigilOfImladIthil.G == nil then settings.SigilOfImladIthil.G = string.format("%.3f", tG); end
+	if settings.SigilOfImladIthil.B == nil then settings.SigilOfImladIthil.B = string.format("%.3f", tB); end
+	if settings.SigilOfImladIthil.X == nil then settings.SigilOfImladIthil.X = string.format("%.0f", tX); end
+	if settings.SigilOfImladIthil.Y == nil then settings.SigilOfImladIthil.Y = string.format("%.0f", tY); end
+	if settings.SigilOfImladIthil.W == nil then settings.SigilOfImladIthil.W = string.format("%.0f", tW); end
+	ShowSigilOfImladIthil = settings.SigilOfImladIthil.V;
+	SOIIbcAlpha = tonumber(settings.SigilOfImladIthil.A);
+	SOIIbcRed = tonumber(settings.SigilOfImladIthil.R);
+	SOIIbcGreen = tonumber(settings.SigilOfImladIthil.G);
+	SOIIbcBlue = tonumber(settings.SigilOfImladIthil.B);
+	_G.SOIILocX = tonumber(settings.SigilOfImladIthil.X);
+	_G.SOIILocY = tonumber(settings.SigilOfImladIthil.Y);
+	_G.SOIIWhere = tonumber(settings.SigilOfImladIthil.W);
+	if _G.SOIIWhere == 3 and ShowSigilOfImladIthil then _G.SOIIWhere = 1; settings.SigilOfImladIthil.W = string.format("%.0f", _G.SOIIWhere); end
+
 	SaveSettings( false );
 	
 	--if settings.TitanBar.W ~= screenWidth then ReplaceCtr(); end --Replace control if screen width as changed
@@ -1411,6 +1430,16 @@ function SaveSettings(str)
 		settings.AncientScript.X = string.format("%.0f", _G.ASLocX);
 		settings.AncientScript.Y = string.format("%.0f", _G.ASLocY);
 		settings.AncientScript.W = string.format("%.0f", _G.ASWhere);
+
+		settings.SigilOfImladIthil = {};
+		settings.SigilOfImladIthil.V = ShowSigilOfImladIthil;
+		settings.SigilOfImladIthil.A = string.format("%.3f", SOIIbcAlpha);
+		settings.SigilOfImladIthil.R = string.format("%.3f", SOIIbcRed);
+		settings.SigilOfImladIthil.G = string.format("%.3f", SOIIbcGreen);
+		settings.SigilOfImladIthil.B = string.format("%.3f", SOIIbcBlue);
+		settings.SigilOfImladIthil.X = string.format("%.0f", _G.SOIILocX);
+		settings.SigilOfImladIthil.Y = string.format("%.0f", _G.SOIILocY);
+		settings.SigilOfImladIthil.W = string.format("%.0f", _G.SOIIWhere);
 	end
 	
 	if GLocale == "de" then Turbine.PluginData.Save( Turbine.DataScope.Character, "TitanBarSettingsDE", settings ); end
@@ -1467,6 +1496,7 @@ function ResetSettings()
 	ShowSpringLeaf, SPLbcAlpha, SPLbcRed, SPLbcGreen, SPLbcBlue, _G.SPLLocX, _G.SPLLocY, _G.SPLWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Spring Leaf Control	
 	ShowMidsummerToken, MSTbcAlpha, MSTbcRed, MSTbcGreen, MSTbcBlue, _G.MSTLocX, _G.MSTLocY, _G.MSTWhere = false, tA, tR, tG, tB, tX, tY, tW; --for  Midsummer Token Control
 	ShowAncientScript, ASbcAlpha, ASbcRed, ASbcGreen, ASbcBlue, _G.ASLocX, _G.ASLocY, _G.ASWhere = false, tA, tR, tG, tB, tX, tY, tW; --for  Ancient Script Control
+	ShowSigilOfImladIthil, SOIIbcAlpha, SOIIbcRed, SOIIbcGreen, SOIIbcBlue, _G.SOIILocX, _G.SOIILocY, _G.SOIIWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Sigil of Imlad Ithil Control
 	
 	SaveSettings( true ); --True: Get & save all settings table to file. / False: only save settings table to file.
 	ReloadTitanBar();
@@ -1675,6 +1705,11 @@ function ReplaceCtr()
 	settings.AncientScript.X = string.format("%.0f", _G.ASLocX);
 	if ShowAncientScript and _G.ASWhere == 1 then AS[ "Ctr" ]:SetPosition( _G.ASLocX, _G.ASLocY ); end
 	
+	oldLocX = settings.SigilOfImladIthil.X / oldScreenWidth;
+	_G.SOIILocX = oldLocX * screenWidth;
+	settings.SigilOfImladIthil.X = string.format("%.0f", _G.SOIILocX);
+	if ShowSigilOfImladIthil and _G.SOIIWhere == 1 then SOII[ "Ctr" ]:SetPosition( _G.SOIILocX, _G.SOIILocY ); end
+
 	SaveSettings( false );
 	write( L["TBSSCD"] );
 end
