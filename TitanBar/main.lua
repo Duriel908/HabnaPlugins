@@ -16,7 +16,7 @@ AppLocaleD = AppDirD.."Locale.";
 
 Version = Plugins["TitanBar"]:GetVersion();--> ** TitanBar current version **
 _G.TB = {};
-WalletOrder = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25 };
+WalletOrder = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26 };
 windowOpen = true;
 _G.Debug = false;-- True will enable some functions when I'm debugging
 
@@ -97,7 +97,7 @@ if PlayerAlign == 1 then
 	-- Item Advancement
 	L["MSP"],
 	-- Other   
-    L["MASP"], L["MBB"], L["MCGSP"], L["MGGB"], L["MHT"],
+    L["MASP"], L["MBB"], L["MCGSP"], L["MGGB"], L["MHT"], L["MSOII"],
 	};
 else MenuItem = { L["MCP"], L["MLP"] }; end
 

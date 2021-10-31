@@ -117,6 +117,9 @@ L[ "MSTh" ] = "Eure Mittsommer-Marken";
 -- Ancient Script control
 L[ "MAS" ] = "Uralte Schrift";
 L[ "ASh" ] = "Eure Uralte Schriften";
+-- Sigil of Imlad Ithil control
+L[ "MSOII" ] = "Siegel von Imlad Ithil";
+L[ "SOIIh" ] = "Eure Siegel von Imlad Ithil";
 
 -- Control Menu
 L[ "MCU" ] = "entfernen ...";

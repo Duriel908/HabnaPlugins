@@ -312,6 +312,10 @@ function frmWalletWindow()
 			_G.ASWhere = SelIndex; settings.AncientScript.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowAncientScript then ShowHideAncientScript(); end
 			else if ShowAncientScript then ShowHideAncientScript(); end end		
+		elseif wcur == L["MSOII"] then
+			_G.SOIIWhere = SelIndex; settings.SigilOfImladIthil.W = string.format("%.0f", SelIndex);
+			if SelIndex == 1 then if not ShowSigilOfImladIthil then ShowHideSigilOfImladIthil(); end
+			else if ShowSigilOfImladIthil then ShowHideSigilOfImladIthil(); end end		
 		elseif wcur == L["MLP"] then
 			_G.LPWhere = SelIndex; settings.LOTROPoints.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowLOTROPoints then ShowHideLOTROPoints(); end
@@ -397,6 +401,7 @@ function RefreshWIListBox()
 				elseif wcur == L["MSPL"] then tw = _G.SPLWhere; -- Spring Leaf
 				elseif wcur == L["MMST"] then tw = _G.MSTWhere; -- Midsummer Token
 				elseif wcur == L["MAS"] then tw = _G.ASWhere; -- Ancient Script
+				elseif wcur == L["MSOII"] then tw = _G.SOIIWhere; -- Sigil of Imlad Ithil
 				end
 				for k, v in pairs(WICBO) do if k == tonumber(tw) then WIDD:SetSelection(k); end end
 

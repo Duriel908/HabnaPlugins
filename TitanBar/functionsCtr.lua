@@ -412,6 +412,12 @@ function ImportCtr( value )
             AS[ "Ctr" ]:SetPosition( _G.ASLocX, _G.ASLocY );
         end
         if _G.ASWhere ~= 3 then UpdateAncientScript(); end	
+	elseif value == "SOII" then --Sigil of Imlad Ithil
+        if _G.SOIIWhere == 1 then
+            import (AppCtrD.."SigilOfImladIthil");
+            SOII[ "Ctr" ]:SetPosition( _G.SOIILocX, _G.SOIILocY );
+        end
+        if _G.SOIIWhere ~= 3 then UpdateSigilOfImladIthil(); end	
 	elseif value == "RP" then --Reputation Points
         RPGR = { ['default'] = {
             [0] = 10000, [1] = 10000, [2] = 20000, [3] = 25000, [4] = 30000,
@@ -1135,6 +1141,7 @@ function UpdateCurrency( str )
 	if str == L[ "MSPL" ] and ShowSpringLeaf then UpdateSpringLeaf(); end
 	if str == L[ "MMST" ] and ShowMidsummerToken then UpdateMidsummerToken(); end
 	if str == L[ "MAS" ] and ShowAncientScript then UpdateAncientScript(); end
+	if str == L[ "MSOII" ] and ShowSigilOfImladIthil then UpdateSigilOfImladIthil(); end
 end
 
 function GetCurrency( str )

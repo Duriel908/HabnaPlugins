@@ -597,3 +597,15 @@ function ShowHideAncientScript()
 	end
 	AS[ "Ctr" ]:SetVisible( ShowAncientScript);
 end
+
+function ShowHideSigilOfImladIthil()
+	ShowSigilOfImladIthil = not ShowSigilOfImladIthil;
+	settings.SigilOfImladIthil.V = ShowSigilOfImladIthil;
+	settings.SigilOfImladIthil.W = string.format( "%.0f", _G.SOIIWhere );
+	SaveSettings( false );
+	ImportCtr( "SOII" );
+	if ShowSigilOfImladIthil then
+		SOII[ "Ctr" ]:SetBackColor( Turbine.UI.Color( SOIIbcAlpha, SOIIbcRed, SOIIbcGreen, SOIIbcBlue ) );
+	end
+	SOII[ "Ctr" ]:SetVisible( ShowSigilOfImladIthil);
+end
