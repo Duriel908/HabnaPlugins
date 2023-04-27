@@ -132,7 +132,7 @@ function get_percentage(Attribute,R,L,PenName,PenFactor)
             SName = SName.."L";
         elseif PlayerClassIs == _G.L["Burglar"] or PlayerClassIs == _G.L["Hunter"] or PlayerClassIs == _G.L["Warden"] then
             SName = SName.."M";
-        elseif PlayerClassIs == _G.L["Beorning"] or PlayerClassIs == _G.L["Captain"] or PlayerClassIs == _G.L["Champion"] or PlayerClassIs == _G.L["Guardian"] then
+        elseif PlayerClassIs == _G.L["Beorning"] or PlayerClassIs == _G.L["Captain"] or PlayerClassIs == _G.L["Champion"] or PlayerClassIs == _G.L["Guardian"] or PlayerClassIs == _G.L["Brawler"] then
             SName = SName.."H";
         end
     end
